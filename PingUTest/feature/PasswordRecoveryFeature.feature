@@ -16,7 +16,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with valid username and matching password but invalid security question and security answer
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters valid username
     And User selects invalid security question
     And User enters invalid security answer
@@ -26,7 +26,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with valid username, security question and matching password but invalid security answer
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
     And User enters invalid security answer
@@ -36,7 +36,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with valid username, security answer and matching password but invalid security question
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters valid username
     And User selects invalid security question
     And User enters valid security answer
@@ -46,7 +46,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with invalid username but valid security question, security answer and matching password
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters invalid username
     And User selects valid security question
     And User enters valid security answer
@@ -56,7 +56,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with valid username, security question and security answer but not matching password
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
     And User enters valid security answer
@@ -66,7 +66,7 @@ Feature: Password recovery function
 
   Scenario: User cannot change password with valid username, security question and security answer but empty password fields
     Given User navigate to the log in page
-    And User clicked on the forgot password link
+    And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
     And User enters valid security answer
