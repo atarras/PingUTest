@@ -2,10 +2,9 @@ Feature: Password recovery function
 
   Background: User can load the website
     Given User launches web browser
-    And User enters the web homepage url in browser
 
   Scenario: User can change password with valid username, security question, security answer and matching password
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
@@ -15,7 +14,7 @@ Feature: Password recovery function
     Then Password successfully changed message will be displayed
 
   Scenario: User cannot change password with valid username and matching password but invalid security question and security answer
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters valid username
     And User selects invalid security question
@@ -25,7 +24,7 @@ Feature: Password recovery function
     Then Password change is unsuccessful message will be displayed
 
   Scenario: User cannot change password with valid username, security question and matching password but invalid security answer
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
@@ -35,7 +34,7 @@ Feature: Password recovery function
     Then Password change is unsuccessful message will be displayed
 
   Scenario: User cannot change password with valid username, security answer and matching password but invalid security question
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters valid username
     And User selects invalid security question
@@ -45,7 +44,7 @@ Feature: Password recovery function
     Then Password change is unsuccessful message will be displayed
 
   Scenario: User cannot change password with invalid username but valid security question, security answer and matching password
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters invalid username
     And User selects valid security question
@@ -55,20 +54,11 @@ Feature: Password recovery function
     Then Password change is unsuccessful message will be displayed
 
   Scenario: User cannot change password with valid username, security question and security answer but not matching password
-    Given User navigate to the log in page
+    Given User navigate to the home page
     And User clicks on the forgot password link
     When User enters valid username
     And User selects valid security question
     And User enters valid security answer
     And User enters valid new password
     And User enters not matching new password
-    Then Password change is unsuccessful message will be displayed
-
-  Scenario: User cannot change password with valid username, security question and security answer but empty password fields
-    Given User navigate to the log in page
-    And User clicks on the forgot password link
-    When User enters valid username
-    And User selects valid security question
-    And User enters valid security answer
-    And User enters leaves password fields blank
     Then Password change is unsuccessful message will be displayed
