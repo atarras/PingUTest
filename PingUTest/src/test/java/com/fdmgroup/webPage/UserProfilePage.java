@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 public class UserProfilePage {
 
 	private static WebElement element;
+
 	
 	public static WebElement countryField(WebDriver driver) {
 		element = driver.findElement(By.id("country"));

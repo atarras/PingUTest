@@ -12,22 +12,7 @@ public class PasswordRecoveryStepDefinitionTest {
 
     private DriverUtilities driverUtilities;
     private WebDriver driver;
-
-    @Given("^User launches web browser$")
-    public void launchWebBrowser() {
-        driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
-        driver = driverUtilities.getDriver();
-    }
-
-    @Given("^User enters the web homepage url in browser$")
-    public void nagivateToHomePage() {
-        driver.get("http://");
-    }
-
-    @Given("^User navigate to the log in page$")
-    public void navigateToLogInPage() {
-        driver.get("http://");
-    }
+    
 
     @Given("^User clicks on the forgot password link$")
     public void clickForgetPasswordLink() {

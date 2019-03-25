@@ -5,7 +5,7 @@ Feature: Updating the user profile
     And User enters the web homepage url in browser
     
   Scenario: User should be able to update the country field to 'Germany' successfully
-    Given User can log into the application with valid username and password
+    Given User enters valid username and valid password
    	And Click on profile icon
    	When Enter 'Germany' in country field
    	Then Click on submit button

@@ -22,18 +22,15 @@ public class LogInStepDefinitionTest {
 
     @Given("^User enters the web homepage url in browser$")
     public void nagivateToHomePage() {
-        driver.get("http://");
+        driver.get("http://localhost:8088/PingU");
     }
 
-    @Given("^User navigate to the login page$")
-    public void navigateToLogInPage() {
-        driver.get("http://localhost:8088/PingU/login");
-    }
 
     @When("^User enters valid username and valid password$")
     public void enterValidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
+        LogInPage.usernameField(driver).sendKeys("jdoe");
+        LogInPage.passwordField(driver).sendKeys("1234");
+        LogInPage.submitButton(driver).click();
     }
 
     @When("^User enters valid username but invalid password$")
