@@ -22,4 +22,14 @@ public class LogInPage {
         element = driver.findElement(By.id("login-button"));
         return element;
     }
+
+    public static WebElement welcomeMessage(WebDriver driver) {
+        element = driver.findElement(By.className("welcome-header"));
+        return element;
+    }
+
+    public static WebElement errorMessage(WebDriver driver) {
+        element = driver.findElement(By.className("error-message"));
+        return element;
+    }
 }

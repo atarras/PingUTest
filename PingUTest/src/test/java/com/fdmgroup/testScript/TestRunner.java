@@ -5,7 +5,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(format = { "pretty", "html:target/cucumber" },features= {"feature/UserProfileFeature.feature"})
+@CucumberOptions(format = { "pretty", "html:target/cucumber" }, features = { "feature/" })
+
 public class TestRunner {
 
 }

@@ -1,5 +1,7 @@
 package com.fdmgroup.testScript;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 
 import com.fdmgroup.util.DriverUtilities;
@@ -20,9 +22,9 @@ public class LogInStepDefinitionTest {
         driver = driverUtilities.getDriver();
     }
 
-    @Given("^User enters the web homepage url in browser$")
-    public void nagivateToHomePage() {
-        driver.get("http://localhost:8088/PingU");
+    @Given("^User navigate to the home page$")
+    public void navigateToLogInPage() {
+        driver.get("http://localhost:8088/PingU/");
     }
 
 
@@ -35,20 +37,20 @@ public class LogInStepDefinitionTest {
 
     @When("^User enters valid username but invalid password$")
     public void enterValidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
+        LogInPage.usernameField(driver).sendKeys("wilson");
+        LogInPage.passwordField(driver).sendKeys("qweasd");
     }
 
     @When("^User enters invalid username but valid password$")
     public void enterInvalidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
+        LogInPage.usernameField(driver).sendKeys("wils");
+        LogInPage.passwordField(driver).sendKeys("qweasdzxc");
     }
 
     @When("^User enters invalid username and invalid password$")
     public void enterInvalidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
+        LogInPage.usernameField(driver).sendKeys("wils");
+        LogInPage.passwordField(driver).sendKeys("qweasd");
     }
 
     @When("^User leaves username and password fields blank$")
@@ -57,16 +59,20 @@ public class LogInStepDefinitionTest {
         LogInPage.passwordField(driver).sendKeys("");
     }
 
-    @When("^And User clicks on Login button$")
+    @When("^User clicks on Login button$")
     public void clickLoginButton() {
         LogInPage.submitButton(driver).click();
     }
 
     @Then("^User will be redirected to the home page$")
-    public void t() {
+    public void verifyHomePageLabel() {
+        String actualWelcomeMessage = "Welcome Wilson Li";
+        assertEquals(LogInPage.welcomeMessage(driver).getText(), actualWelcomeMessage);
     }
 
     @Then("^Invalid username/password error message is displayed$")
-    public void y() {
+    public void verifyErrorMessageLabel() {
+        String actualErrorMessage = "Incorrect Username or Password! Please try again.";
+        assertEquals(LogInPage.errorMessage(driver).getText(), actualErrorMessage);
     }
 }
