@@ -16,6 +16,8 @@ public class PasswordRecoveryStepDefinitionTest {
 
     @Given("^User clicks on the forgot password link$")
     public void clickForgetPasswordLink() {
+    	driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
+        driver = driverUtilities.getDriver();
         driver.get("http://");
     }
 

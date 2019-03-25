@@ -19,7 +19,7 @@ public class LogInPage {
     }
 
     public static WebElement submitButton(WebDriver driver) {
-        element = driver.findElement(By.id("login-button"));
+        element = driver.findElement(By.xpath("//*[@id='login-button']"));
         return element;
     }
 

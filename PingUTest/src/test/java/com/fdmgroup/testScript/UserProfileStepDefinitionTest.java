@@ -15,25 +15,10 @@ public class UserProfileStepDefinitionTest {
 	private DriverUtilities driverUtilities;
 	private WebDriver driver;
 
-	/*@Given("^User launches web browser$")
-	public void launchWebBrowser() {
-		driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
-		driver = driverUtilities.getDriver();
-	}
-
-	@Given("^User enters the web homepage url in browser$")
-	public void nagivateToHomePage() {
-		driver.get("http://localhost:8088/PingU/");
-	}
-
-	@Given("^User can log into the application with valid username and password$")
-	 public void enterValidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("jdoe");
-        LogInPage.passwordField(driver).sendKeys("1234");
-    }
-	*/
 	@Given("^Click on profile icon$")
 	public void profileIcon() {
+		driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
+        driver = driverUtilities.getDriver();
 		NaveBarPage.profileIcon(driver).click();
 	}
 	

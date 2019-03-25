@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.openqa.selenium.WebDriver;
 
+import com.fdmgroup.testData.DataFile;
 import com.fdmgroup.util.DriverUtilities;
 import com.fdmgroup.webPage.LogInPage;
 
@@ -20,6 +21,7 @@ public class LogInStepDefinitionTest {
     public void launchWebBrowser() {
         driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
         driver = driverUtilities.getDriver();
+        driver.manage().window().maximize();
     }
 
     @Given("^User navigate to the home page$")
@@ -29,10 +31,9 @@ public class LogInStepDefinitionTest {
 
 
     @When("^User enters valid username and valid password$")
-    public void enterValidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("jdoe");
-        LogInPage.passwordField(driver).sendKeys("1234");
-        LogInPage.submitButton(driver).click();
+    public void enterValidUsernameValidPassword() throws InterruptedException {
+        LogInPage.usernameField(driver).sendKeys(DataFile.username);
+        LogInPage.passwordField(driver).sendKeys(DataFile.password);
     }
 
     @When("^User enters valid username but invalid password$")
@@ -61,13 +62,12 @@ public class LogInStepDefinitionTest {
 
     @When("^User clicks on Login button$")
     public void clickLoginButton() {
-        LogInPage.submitButton(driver).click();
+        LogInPage.submitButton(driver).submit();
     }
 
     @Then("^User will be redirected to the home page$")
     public void verifyHomePageLabel() {
-        String actualWelcomeMessage = "Welcome Wilson Li";
-        assertEquals(LogInPage.welcomeMessage(driver).getText(), actualWelcomeMessage);
+        assertEquals(LogInPage.welcomeMessage(driver).getText(), DataFile.actualWelcomeMessage);
     }
 
     @Then("^Invalid username/password error message is displayed$")
