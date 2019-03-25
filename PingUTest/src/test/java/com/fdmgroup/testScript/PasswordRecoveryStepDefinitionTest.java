@@ -12,8 +12,8 @@ import cucumber.api.java.en.Then;
 
 public class PasswordRecoveryStepDefinitionTest {
 
-    private DriverUtilities driverUtilities;
-    private WebDriver driver;
+    private DriverUtilities driverUtilities = DriverUtilities.getInstanceOfDriverUtilities();
+    private WebDriver driver = driverUtilities.getDriver();
 
     @Given("^User clicks on the forgot password link$")
     public void clickForgetPasswordLink() {
@@ -22,7 +22,7 @@ public class PasswordRecoveryStepDefinitionTest {
 
     @When("^User enters valid username$")
     public void enterValidUsername() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
         PasswordRecoveryPage.usernameField(driver).sendKeys("wilson");
     }
 
@@ -49,7 +49,7 @@ public class PasswordRecoveryStepDefinitionTest {
 
     @When("^User enters invalid username$")
     public void enterInvalidUsername() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
         PasswordRecoveryPage.usernameField(driver).sendKeys("wils");
     }
 

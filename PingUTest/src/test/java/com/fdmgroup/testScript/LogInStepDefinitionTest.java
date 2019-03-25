@@ -27,12 +27,10 @@ public class LogInStepDefinitionTest {
         driver.get("http://localhost:8088/PingU/");
     }
 
-
     @When("^User enters valid username and valid password$")
     public void enterValidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("jdoe");
-        LogInPage.passwordField(driver).sendKeys("1234");
-        LogInPage.submitButton(driver).click();
+        LogInPage.usernameField(driver).sendKeys("wilson");
+        LogInPage.passwordField(driver).sendKeys("qweasdzxc");
     }
 
     @When("^User enters valid username but invalid password$")
@@ -51,12 +49,6 @@ public class LogInStepDefinitionTest {
     public void enterInvalidUsernameInvalidPassword() {
         LogInPage.usernameField(driver).sendKeys("wils");
         LogInPage.passwordField(driver).sendKeys("qweasd");
-    }
-
-    @When("^User leaves username and password fields blank$")
-    public void emptyUsernamePassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
     }
 
     @When("^User clicks on Login button$")
