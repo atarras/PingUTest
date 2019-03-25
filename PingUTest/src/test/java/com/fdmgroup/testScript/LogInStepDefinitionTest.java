@@ -29,7 +29,6 @@ public class LogInStepDefinitionTest {
         driver.get("http://localhost:8088/PingU/");
     }
 
-
     @When("^User enters valid username and valid password$")
     public void enterValidUsernameValidPassword() throws InterruptedException {
         LogInPage.usernameField(driver).sendKeys(DataFile.username);
@@ -52,12 +51,6 @@ public class LogInStepDefinitionTest {
     public void enterInvalidUsernameInvalidPassword() {
         LogInPage.usernameField(driver).sendKeys("wils");
         LogInPage.passwordField(driver).sendKeys("qweasd");
-    }
-
-    @When("^User leaves username and password fields blank$")
-    public void emptyUsernamePassword() {
-        LogInPage.usernameField(driver).sendKeys("");
-        LogInPage.passwordField(driver).sendKeys("");
     }
 
     @When("^User clicks on Login button$")
