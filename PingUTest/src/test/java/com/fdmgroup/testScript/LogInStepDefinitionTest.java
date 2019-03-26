@@ -26,7 +26,7 @@ public class LogInStepDefinitionTest {
 
     @Given("^User navigate to the home page$")
     public void navigateToLogInPage() {
-        driver.get("http://localhost:8088/PingU/");
+        driver.get(DataFile.webURL);
     }
 
     @When("^User enters valid username and valid password$")
@@ -37,20 +37,20 @@ public class LogInStepDefinitionTest {
 
     @When("^User enters valid username but invalid password$")
     public void enterValidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wilson");
-        LogInPage.passwordField(driver).sendKeys("qweasd");
+        LogInPage.usernameField(driver).sendKeys(DataFile.username);
+        LogInPage.passwordField(driver).sendKeys(DataFile.invalidPassword);
     }
 
     @When("^User enters invalid username but valid password$")
     public void enterInvalidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wils");
-        LogInPage.passwordField(driver).sendKeys("qweasdzxc");
+        LogInPage.usernameField(driver).sendKeys(DataFile.invalidUsername);
+        LogInPage.passwordField(driver).sendKeys(DataFile.password);
     }
 
     @When("^User enters invalid username and invalid password$")
     public void enterInvalidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wils");
-        LogInPage.passwordField(driver).sendKeys("qweasd");
+        LogInPage.usernameField(driver).sendKeys(DataFile.invalidUsername);
+        LogInPage.passwordField(driver).sendKeys(DataFile.invalidPassword);
     }
 
     @When("^User clicks on Login button$")
@@ -65,7 +65,6 @@ public class LogInStepDefinitionTest {
 
     @Then("^Invalid username/password error message is displayed$")
     public void verifyErrorMessageLabel() {
-        String actualErrorMessage = "Incorrect Username or Password! Please try again.";
-        assertEquals(LogInPage.errorMessage(driver).getText(), actualErrorMessage);
+        assertEquals(LogInPage.errorMessage(driver).getText(), DataFile.actualErrorMessage);
     }
 }
