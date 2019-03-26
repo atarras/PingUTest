@@ -33,6 +33,6 @@ Feature: Updating the user profile
    	And Click on Password and security Link
    	When Enter current password
    	And Enter new password 
-   	And confirm new password
+   	And Confirm new password
    	Then Click on submit button
    	And User should get be able to update the password

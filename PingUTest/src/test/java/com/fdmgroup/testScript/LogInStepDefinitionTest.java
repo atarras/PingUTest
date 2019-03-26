@@ -26,7 +26,7 @@ public class LogInStepDefinitionTest {
 
     @Given("^User navigate to the home page$")
     public void navigateToLogInPage() {
-        driver.get("http://localhost:8088/PingU/");
+        driver.get(DataFile.homeURL);
     }
 
     @When("^User enters valid username and valid password$")
@@ -65,7 +65,6 @@ public class LogInStepDefinitionTest {
 
     @Then("^Invalid username/password error message is displayed$")
     public void verifyErrorMessageLabel() {
-        String actualErrorMessage = "Incorrect Username or Password! Please try again.";
-        assertEquals(LogInPage.errorMessage(driver).getText(), actualErrorMessage);
+        assertEquals(LogInPage.errorMessage(driver).getText(), DataFile.actualErrorMessage);
     }
 }
