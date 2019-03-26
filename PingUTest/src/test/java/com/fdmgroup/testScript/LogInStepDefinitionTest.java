@@ -37,20 +37,20 @@ public class LogInStepDefinitionTest {
 
     @When("^User enters valid username but invalid password$")
     public void enterValidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wilson");
-        LogInPage.passwordField(driver).sendKeys("qweasd");
+        LogInPage.usernameField(driver).sendKeys(DataFile.username);
+        LogInPage.passwordField(driver).sendKeys(DataFile.invalidPassword);
     }
 
     @When("^User enters invalid username but valid password$")
     public void enterInvalidUsernameValidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wils");
-        LogInPage.passwordField(driver).sendKeys("qweasdzxc");
+        LogInPage.usernameField(driver).sendKeys(DataFile.invalidUsername);
+        LogInPage.passwordField(driver).sendKeys(DataFile.password);
     }
 
     @When("^User enters invalid username and invalid password$")
     public void enterInvalidUsernameInvalidPassword() {
-        LogInPage.usernameField(driver).sendKeys("wils");
-        LogInPage.passwordField(driver).sendKeys("qweasd");
+        LogInPage.usernameField(driver).sendKeys(DataFile.invalidUsername);
+        LogInPage.passwordField(driver).sendKeys(DataFile.invalidPassword);
     }
 
     @When("^User clicks on Login button$")
