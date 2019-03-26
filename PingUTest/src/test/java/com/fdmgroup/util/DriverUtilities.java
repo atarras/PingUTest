@@ -37,7 +37,7 @@ public class DriverUtilities {
 		int driverName = 1;
 		switch(driverName){
 		case 1 :
-			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "PingUTest/src/test/java/com/fdmgroup/util/chromedriver.exe");
 			this.driver = new ChromeDriver();
 			break;
 		case 2 :
